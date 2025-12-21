@@ -1,5 +1,4 @@
 # TÓPICO I — `print()` [depuração, output e etc...]
-
 Sem enrolação, se você nunca pesquisou no navegador: **"O que é `print()`?"** então eu vou te mostrar o resultado robusto que você recebe:
 
 > `print()` em GDScript é uma função fundamental para **depuração** (debugging), usada para exibir **mensagens**, **variáveis** ou o **estado do seu jogo no console de saída** (Output) da Godot Engine [...]
@@ -11,7 +10,7 @@ Parece maluquice, não? Depuração, função, console de saída, output... Mas 
 
 2. `Depuração` ou também chamado de `debug`, nada mais é que o processo de encontrar e corrigir erros (bugs) em um código. Então, quando você identifica um erro num código e começa a elaborar uma solução para ele, você **automaticamente** está fazendo uma __depuração__. Simples, não?
 
-3. `Output`, vulgo **Console de Saída** é literalmente a **Saída** de tudo o que acontecer com o seu código! Sejam: erros, avisos e mensagens no geral. Toda vez que você usar `print()` em seu código, o resultado sempre aparecerá na janela com o nome **Output** (muitos devem achar óbvio, mas é bom explicar).
+3. `Output`, vulgo **Console de Saída**, é literalmente a **Saída** de tudo o que acontecer com o seu código! Sejam: erros, avisos e mensagens no geral. Toda vez que você usar `print()` em seu código, o resultado sempre aparecerá na janela com o nome **Output** (muitos devem achar óbvio, mas é bom explicar).
 
 ### Wow...
 Aprendemos termos novos, mas vamos avançar:
@@ -28,7 +27,7 @@ Pois todo o código que faz essa função embutida funcionar está todo escondid
 
 Vamos mexer com o `print()` no seu código! (espero que seu Godot esteja aberto)
 Usaremos a função `print()` da seguinte forma:
-```python
+```gdscript
 print("Olá, mundo!")
 ```
 Mas, se você foi apressado o suficiente para rodar o código antes que eu pedisse, então viu que digitar apenas isso não vai funcionar, pois nos deparamos com o seguinte erro:
@@ -39,7 +38,7 @@ Traduzindo literalmente: **Identificador inesperado "print" no corpo da classe.*
 E santo Deus! Outro termo chique e estiloso para decifrarmos... Mas não vamos entrar em detalhes dessa questão agora, vamos aprofundar isso quando chegarmos no tópico de `FUNÇÕES`, então fica tranquilo!
 
 Para contornarmos essa situação, digite o seguinte código:
-```python
+```gdscript
 extends Node
 func _ready():
   print("Olá, mundo!")
@@ -50,23 +49,23 @@ Se você não sabe o porquê de termos adicionado `extends Node` e `func _ready(
 Agora, **"como manipular o texto na minha função?"** — você se perguntou, né? E isso é muito simples:
 Como você já sabe, `print()` é uma **função embutida** que vai mostrar no **Output** da Godot a mensagem que você definir.
 A mensagem que você quer colocar vai ficar dentro das "aspas", deu para entender? Por exemplo:
-```python
+```gdscript
   print("Você vai escrever sua mensagem aqui dentro!")
   print("E toda vez que você quiser mandar um texto, PRECISA obrigatoriamente estar dentro de aspas!")
   print("E claro, as aspas precisam estar dentro dos parenteses, se não, a Engine não vai entender que isso faz parte do print()")
 ```
 Intrigante, não? E além de você poder exibir qualquer tipo de mensagem (texto) no seu **Output**, você também consegue usar números, assim como fazer cálculos com eles apenas usando `print()`! Dê uma olhada:
 
-```python
+```gdscript
   print("Olá, mundo! O resultado de 2+2 é: ",2+2)
 ```
-Se você rodar esse código acima, vai ver este resultado:
-```python
+Se você rodar o código acima, vai ver este resultado:
+```gdscript
   Olá, mundo! O resultado de 2+2 é: 4
 ```
 E não, a Engine não vai entender que você quer somar dois números se você fizer: `print("A soma de 2+2 é: 2+2")`, isso porque tudo o que estiver dentro das **"aspas"** será lido pela Engine como TEXTO, nada mais e nada menos, então, se você quer que uma expressão matemática dê um resultado, precisará SEPARAR o texto da expressão.
 E se você é esperto, já deve ter notado que eu separei o texto da expressão usando uma VÍRGULA, sim, uma vírgula... Em casos como esse, ela serve para separar múltiplos valores (números, texto, boolean, variável, etc) para você exibir no **Output**, por isso, o correto a se fazer para mandar uma mensagem no **Output** com uma expressão matemática calculada é dessa forma:
-```python
+```gdscript
   print("Oi! Meu nome é Felipe. Eu nasci em 2007, então eu tenho ",2025-2007," anos de idade.")
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^    ^^^^^     ^^^^^^^^^^^^
                                  texto                             expressão      texto
